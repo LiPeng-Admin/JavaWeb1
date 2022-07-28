@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>function2</title>
+    <script type="text/javascript">
+        var fun=function(a,b){
+        alert("a"+a+",b"+b);
+        }
+        fun(1,2);
+
+        //定义一个有返回值的函数
+        var fun2=function(num1,num2){
+        return num2+num1;
+        }
+        alert(fun2(200,300));
+
+        //在 Java 中函数允许重载。但是在 JS 中函数的重载会直接覆盖掉上一次的定义
+        var fun3=function(c,d){
+        alert("fun3()不允许重载");
+        }
+
+
+        var fun3=function(){
+        alert("fun3()不允许重载22");}
+        fun3(1,2);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

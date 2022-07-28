@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态注册onchange事件</title>
+</head>
+<script type="text/javascript">
+    window.onload = function() {
+
+    var onchangeObj=document.getElementById("onchangeFun");
+    onchangeObj.onchange=function() {
+    alert("动态的选择你的女神")
+    }
+    }
+
+</script>
+<body>
+<select id="onchangeFun">
+    <option >请选择你的女神</option>
+    <option >朱茵</option>
+    <option >钟丽缇</option>
+    <option >古力娜扎</option>
+    <option >张柏芝</option>
+</select>
+
+</body>
+</html>

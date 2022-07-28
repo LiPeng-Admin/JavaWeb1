@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>静态注册失去焦点事件</title>
+</head>
+<script type="text/javascript">
+    //静态注册失去焦点事件
+    function onblurFunction(){
+    console.log("静态失去焦点。。。");
+    }
+
+</script>
+<body>
+
+用户名：<input type="text" onblur="onblurFunction()" placeholder="用户名"><br />
+密码：<input type="text" id="blur01" placeholder="密码">
+
+
+</body>
+</html>
