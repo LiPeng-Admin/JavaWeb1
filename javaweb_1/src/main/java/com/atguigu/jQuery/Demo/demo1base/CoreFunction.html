@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="../script/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+    /*
+    $是jQuery的核心函数，能完成jQuery的很多功能。$()就是调用$这个函数
+    1、传入参数为[函数]时：表示页面加载完成之后。相当于window.onload=function(){}
+    2、传入参数为[HTML字符串]时：会对我们创建这个html标签对象
+    3、传入参数为[选择器字符串]时：
+        $(“#id属性值”);id选择器，
+        根据id查询标签对象$(“标签名”);标签名选择器，
+        根据指定的标签名查询标签对象$(“.class属性值”);类型选择器，可以根据class属性查询标签对象
+    4、传入参数为[DOM对象]时：会把这个dom对象转换为jQuery对象
+
+    */
+
+    /*
+    Dom对象
+    1.通过getElementById()查询出来的标签对象是Dom对象
+    2.通过getElementsByName()查询出来的标签对象是Dom对象
+    3.通过getElementsByTagName()查询出来的标签对象是Dom对象
+    4.通过createElement()方法创建的对象，是Dom对象
+    DOM对象Alert出来的效果是：[objectHTML标签名Element]
+    jQuery对象
+    5.通过JQuery提供的API创建的对象，是JQuery对象
+    6.通过JQuery包装的Dom对象，也是JQuery对象
+    7.通过JQuery提供的API查询到的对象，是JQuery对象
+    jQuery对象Alert出来的效果是：[objectObject]
+
+   */
+    //核心函数的4个应用
+    $(function(){
+    alert("Please enter your name");
+         $( "<div>"+
+        "<span>div-span1</span>"+
+       " <span>div-span2</span>"+
+    "</div>").appendTo("body")
+
+   alert($("button").length)
+  var btnObj= document.getElementById("btn01");
+  alert($(btnObj))
+    })
+
+
+
+</script>
+<body>
+<button id="btn01">按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+
+
+</body>
+</html>

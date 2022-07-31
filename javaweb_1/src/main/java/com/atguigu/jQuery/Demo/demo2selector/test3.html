@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../script/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+
+    /*
+    prependTo()
+    a.prependTo(b)把a插到b所有子元素前面，成为第一个子元素
+    外部插入：
+    insertAfter()   a.insertAfter(b)得到ba
+    insertBefore()  a.insertBefore(b)得到ab
+    替换:
+
+    replaceWith()  a.replaceWith(b) 用b替换掉a
+    replaceAll()   a.replaceAll(b)  用a替换掉所有b
+    删除：
+    remove()       a.remove();删除a标签
+    empty()        a.empty();清空a标签里的内容
+
+
+*/
+    $(document).ready(function() {
+
+     //$("<h1>标题1</h1>").appendTo("div")
+    // $("<h1>标题1</h1>").prependTo("div")
+
+    //$("<h1>标题2</h1>").insertAfter("div")
+   // $("<h1>标题2</h1>").insertBefore("div")
+
+   //$("div").replaceWith($("<h1>标题2</h1>"))
+
+   //$("<h1>标题2</h1>").replaceAll("div")
+
+  // $("div").remove();
+$("div").empty();
+
+    })
+
+
+    </script>
+</head>
+<body>
+<br/>多选：
+<input name="checkbox" type="checkbox" value="checkbox1"/>checkbox1
+<input name="checkbox" type="checkbox" value="checkbox2"/>checkbox2
+<input name="checkbox" type="checkbox" value="checkbox3"/>checkbox3
+<br/>
+<div>124<span>测试</span></div>
+<div>124</div>
+
+
+</body>
+</html>
