@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态注册表单提交事件</title>
+</head>
+<script type="text/javascript">
+
+    window.onload = function() {
+  //1:获取标签对象
+    var onsubmitObj=document.getElementById("os");
+    //2:通过标签对象.事件名=function() {}
+
+    onsubmitObj.onsubmit = function() {
+    alert("动态注册提交事件，如果有异常，选择不提交");
+    return false;
+    }
+ }
+
+</script>
+<body>
+<form action="http://localhost:8080/" id="os" >
+    <input type="submit" value="提交">
+
+</form>
+
+</body>
+</html>

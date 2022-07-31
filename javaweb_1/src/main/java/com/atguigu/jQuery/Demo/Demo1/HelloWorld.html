@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="../script/jquery-1.7.2.js"></script>
+<script type="text/javascript" >
+/*
+    window.onload = function() {
+    var btnObj=document.getElementById("btn01");
+    btnObj.onclick=function() {
+    alert("js 单击原生事件")}
+    }
+    */
+
+    //alert($)
+  $(function(){ //window.onload
+    $("#btn01").click(function(){
+        alert("jQuery单击事件") //表示按id查询到标签对象，并绑定单击事件
+    })
+})
+
+</script>
+<body>
+<button id="btn01">sayHello</button>
+
+</body>
+</html>

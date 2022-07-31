@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+/*
+
+Document 对象中的方法介绍（*****重点）
+document.getElementById(elementId)
+通过标签的 id 属性查找标签 dom 对象，elementId 是标签的 id 属性值
+document.getElementsByName(elementName)
+通过标签的 name 属性查找标签 dom 对象，elementName 标签的 name 属性值
+document.getElementsByTagName(tagname)
+通过标签名查找标签 dom 对象。tagname 是标签名
+document.createElement( tagName)
+方法，通过给定的标签名，创建一个标签对象。tagName 是要创建的标签名
+注：
+document 对象的三个查询方法，如果有 id 属性，优先使用 getElementById 方法来进行查询
+如果没有 id 属性，则优先使用 getElementsByName 方法来进行查询
+如果 id 属性和 name 属性都没有最后再按标签名查 getElementsByTagName
+以上三个方法，一定要在页面加载完成之后执行，才能查询到标签对象。
+
+*/
+
+/*需求：当用户点击了校验按钮，要获取输入框的内容，然后验证其是否合法
+验证的规则：必须由数字，字母，下划线组成，并且长度在5-12位
+*/
+function onclickFun() {
+//1:当我们 要操作一个标签的时候，一定要先获取这个标签对象
+var usernameObj= document.getElementById("username");
+
+var htmlText=usernameObj.value;
+
+//如何验证字符串，符合某种规则，需要使用正则表达式
+var partt=/^\w{5,12}$/;
+
+
+/*
+test方法用于测试某个字符串，是不是匹配我的规则，若匹配，则返回true,若不匹配，则返回false
+*/
+if(partt.test(htmlText)){
+alert("用户名合法");
+}else{
+alert("用户名不合法");
+}
+
+}
+</script>
+<body>
+用户名：<input type="text" id="username" value="wq" placeholder="用户名">
+<button onclick="onclickFun()">校验</button>
+
+
+</body>
+</html>

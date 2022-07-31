@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    function addTitle() {
+   var inputs= document.getElementsByTagName("input");
+   for (var i=0;i< inputs.length;i++) {
+
+   inputs[i].checked = true;
+   }
+    }
+
+</script>
+<body>
+
+<input type="checkbox"  value="javascript" checked="checked">javascript
+<input type="checkbox"  value="java">java
+<input type="checkbox"  value="php">php<br/>
+
+<button onclick="addTitle()">全选</button>
+
+</body>
+</html>
