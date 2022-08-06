@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片跟随</title>
+</head>
+<link rel="stylesheet" type="text/css" href="base2.css">
+<script type="text/javascript" src="../script/jquery-1.7.2.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#small").bind("mouseover mouseout mousemove", function (event) {
+            if (event.type == "mouseover") {
+                $("#showBig").show();
+            } else if (event.type == "mouseout") {
+                $("#showBig").hide();
+            } else if (event.type == "mousemove") {
+                $("#showBig").offset({
+                    top: event.pageY + 10,
+                    left: event.pageX + 10
+                });
+            }
+
+        })
+    })
+  // alert($)
+    $(function(){
+        $("#small")
+            .mouseover(function(event){
+                $("#showBig")
+                    .show()
+                    .css("left",event.pageX+10)
+                    .css("top",event.pageY+10);
+            })
+            .mousemove(function(event){
+                $("#showBig")
+                    .css("left",event.pageX+10)
+                    .css("top",event.pageY+10);
+            })
+            .mouseout(function(){
+                $("#showBig").hide();
+            });
+    });
+</script>
+<body>
+<img id="small" src="./img/small.jpg">
+<div id="showBig">
+    <img src="./img/big.jpg">
+</div>
+
+</body>
+</html>

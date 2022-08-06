@@ -1,0 +1,14 @@
+div {
+    width: 100px;
+    height: 260px;
+}
+div.whiteborder {
+    border: 2px white solid;
+}
+div.reDiv {
+    background-color: red;
+}
+
+div.blueBorder {
+    border: 5px blue solid;
+}

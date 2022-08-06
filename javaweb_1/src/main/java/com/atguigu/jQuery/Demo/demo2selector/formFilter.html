@@ -27,71 +27,74 @@
 		:selected
 
     */
-$(function() {
-                //1.对表单内 可用input 赋值操作
-                $("#btn1").click(function(){
+    $(function () {
+        //1.对表单内 可用input 赋值操作
+        $("#btn1").click(function () {
 
-                // val()可以操作表单项的value属性值
-				// 它可以设置和获取
-                $(":text:enabled").val("我是万能的程序员")
+            // val()可以操作表单项的value属性值
+            // 它可以设置和获取
+            $(":text:enabled").val("我是万能的程序员")
 
-                })
+        })
 
-				//2.对表单内 不可用input 赋值操作
-				$("#btn2").click(function(){
-				$(":text:disabled").val("管你可用不可用，反正我是万能的程序员")
-				})
+        //2.对表单内 不可用input 赋值操作
+        $("#btn2").click(function () {
+            $(":text:disabled").val("管你可用不可用，反正我是万能的程序员")
+        })
 
-				//3.获取多选框选中的个数  使用size()方法获取选取到的元素集合的元素个数
-				$("#btn3").click(function(){
-				//alert($(":checkbox:checked").length)
+        //3.获取多选框选中的个数  使用size()方法获取选取到的元素集合的元素个数
+        $("#btn3").click(function () {
+            //alert($(":checkbox:checked").length)
 
-				})
+        })
 
-				//4.获取多选框，每个选中的value值
-				$("#btn4").click(function(){
-			var $checkValue=$(":checkbox:checked");
-			//老的遍历方式
-			/*
-			for (var i=0;$checkValue.length; i++){
+        //4.获取多选框，每个选中的value值
+        $("#btn4").click(function () {
+            var $checkValue = $(":checkbox:checked");
+            //老的遍历方式
+            /*
+            for (var i=0;$checkValue.length; i++){
 
-			alert($checkValue[i].value)
-			}
-			*/
+            alert($checkValue[i].value)
+            }
+            */
 
-			//each方法是jQuery对象提供用来遍历元素的方法
-			//在遍历的function函数中，有一个this对象，这个this对象，就是当前遍历到的dom对象
+            //each方法是jQuery对象提供用来遍历元素的方法
+            //在遍历的function函数中，有一个this对象，这个this对象，就是当前遍历到的dom对象
 
-			$checkValue.each(function(){
-			alert(this.value)
-			})
-				})
+            $checkValue.each(function () {
+                alert(this.value)
+            })
+        })
 
-				//5.获取下拉框选中的内容
+        //5.获取下拉框选中的内容
 
-				$("#btn5").click(function(){
+        $("#btn5").click(function () {
 
-				// 获取选中的option标签对象
-				var $optionValue=$("select option:selected");
+            // 获取选中的option标签对象
+            var $optionValue = $("select option:selected");
 
-				// 遍历，获取option标签中的文本内容
-				$optionValue.each(function(){
-				// 在each遍历的function函数中，有一个this对象。这个this对象是当前正在遍历到的dom对象
-				alert(this.innerHTML);
-				})
+            // 遍历，获取option标签中的文本内容
+            $optionValue.each(function () {
+                // 在each遍历的function函数中，有一个this对象。这个this对象是当前正在遍历到的dom对象
+                alert(this.innerHTML);
+            })
 
-				})
+        })
 
-})
+    })
 
 </script>
 <body>
 <h3>表单对象属性过滤选择器</h3>
 <button id="btn1">对表单内 可用input 赋值操作.</button>
-<button id="btn2">对表单内 不可用input 赋值操作.</button><br /><br />
+<button id="btn2">对表单内 不可用input 赋值操作.</button>
+<br/><br/>
 <button id="btn3">获取多选框选中的个数.</button>
-<button id="btn4">获取多选框选中的内容.</button><br /><br />
-<button id="btn5">获取下拉框选中的内容.</button><br /><br />
+<button id="btn4">获取多选框选中的内容.</button>
+<br/><br/>
+<button id="btn5">获取下拉框选中的内容.</button>
+<br/><br/>
 
 <form id="form1" action="#">
     可用元素: <input name="add" value="可用文本框1"/><br>
@@ -101,11 +104,11 @@ $(function() {
     <br>
 
     多选框: <br>
-    <input type="checkbox" name="newsletter" checked="checked" value="test1" />test1
-    <input type="checkbox" name="newsletter" value="test2" />test2
-    <input type="checkbox" name="newsletter" value="test3" />test3
-    <input type="checkbox" name="newsletter" checked="checked" value="test4" />test4
-    <input type="checkbox" name="newsletter" value="test5" />test5
+    <input type="checkbox" name="newsletter" checked="checked" value="test1"/>test1
+    <input type="checkbox" name="newsletter" value="test2"/>test2
+    <input type="checkbox" name="newsletter" value="test3"/>test3
+    <input type="checkbox" name="newsletter" checked="checked" value="test4"/>test4
+    <input type="checkbox" name="newsletter" value="test5"/>test5
 
     <br><br>
     下拉列表1: <br>

@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+}
+#small {
+    margin-top: 150px;
+}
+#showBig {
+    position: absolute;
+    display: none;
+}

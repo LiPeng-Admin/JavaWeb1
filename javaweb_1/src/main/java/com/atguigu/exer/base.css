@@ -1,0 +1,10 @@
+select {
+    width: 100px;
+    height: 140px;
+}
+
+div {
+    width: 130px;
+    float: left;
+    text-align: center;
+}

@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 13px;
+    line-height: 130%;
+    padding: 60px;
+}
+#content{
+    width: 220px;
+    border: 1px solid #0050D0;
+    background: #96E555;
+}
+span{
+    width: 200px;
+    margin: 10px;
+    background: #666666;
+    cursor: pointer;
+    color: white;
+    display: block;
+}
+p{
+    width: 200px;
+    background: #888;
+    color: white;
+    height: 16px;
+}

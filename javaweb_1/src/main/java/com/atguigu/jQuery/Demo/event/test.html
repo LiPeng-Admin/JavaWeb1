@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <script type="text/javascript" src="../script/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        /*
+        * jQuery 中其他的事件处理方法：
+        *
+            click() 它可以绑定单击事件，以及触发单击事件
+            mouseover() 鼠标移入事件
+            mouseout() 鼠标移出事件
+            bind() 可以给元素一次性绑定一个或多个事件。
+            one() 使用上跟 bind 一样。但是 one 方法绑定的事件只会响应一次。
+            unbind() 跟 bind 方法相反的操作，解除事件的绑定
+            live() 也是用来绑定事件。它可以用来绑定选择器匹配的所有元素的事件。哪怕这个元素是后面动态创建出
+            来的也有效
+        *
+        *
+        * 事件的冒泡
+            什么是事件的冒泡？
+            事件的冒泡是指，父子元素同时监听同一个事件。当触发子元素的事件的时候，同一个事件也被传递到了父元素的事件里去
+            响应。
+            那么如何阻止事件冒泡呢？
+            在子元素事件函数体内，return false; 可以阻止事件的冒泡传递
+        * */
+
+        $(function() {
+            $("#content").click(function() {
+                alert("我是父元素div");
+            })
+
+            $("span").click(function() {
+                alert("我是子元素span");
+                //return false; 可以阻止事件的冒泡传递
+                return false
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+<div id="content">
+    外层div元素
+    <span>内层span元素</span>
+    外层div元素
+</div>
+
+<div id="msg"></div>
+
+<br><br>
+<a href="http://www.hao123.com">WWW.HAO123.COM</a>
+
+</body>
+</html>

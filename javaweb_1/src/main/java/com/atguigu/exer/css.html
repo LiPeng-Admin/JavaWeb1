@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--<link rel="stylesheet" type="text/css" href="base2.css">-->
+<style type="text/css">
+    div {
+        width: 100px;
+        height: 260px;
+    }
+
+    div.whiteborder {
+        border: 2px white solid;
+    }
+
+    div.reDiv {
+        background-color: red;
+    }
+
+    div.blueBorder {
+        border: 5px blue solid;
+    }
+
+</style>
+<script type="text/javascript" src="../jQuery/Demo/script/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+    $(function () {
+        const $div = $('div:first');
+        $("#btn01").click(function () {
+      	//addClass() - 向被选元素添加一个或多个类
+            $div.addClass("reDiv")
+        })
+
+        $('#btn02').click(function () {
+            //removeClass() - 从被选元素删除一个或多个类
+            $div.removeClass("reDiv blueBorder")
+
+        })
+        $("#btn03").click(function () {
+            //toggleClass() - 对被选元素进行添加/删除类的切换操作
+            $div.toggleClass("reDiv")
+        })
+        $("#btn04").click(function () {
+            //offset() - 返回第一个匹配元素相对于文档的位置。
+            const offset = $div.offset();
+            // console.log(offset)
+
+            $div.offset({
+                left:50,
+                top:100
+            })
+        })
+
+
+    })
+
+</script>
+<body>
+<table align="center">
+    <tr>
+        <td>
+            <div class="border">
+            </div>
+        </td>
+
+        <td>
+            <div class="btn">
+                <input type="button" value="addClass()" id="btn01"/>
+                <input type="button" value="removeClass()" id="btn02"/>
+                <input type="button" value="toggleClass()" id="btn03"/>
+                <input type="button" value="offset()" id="btn04"/>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<br/> <br/>
+
+
+<br/> <br/>
+
+</body>
+</html>
