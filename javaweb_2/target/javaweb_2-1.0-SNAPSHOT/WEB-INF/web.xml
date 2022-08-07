@@ -3,22 +3,146 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-<!--    servlet标签给tomcat配置servlet程序-->
+    <!--context-param 是上下文参数（它属于整个web工程）-->
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>context</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
+    <!--    servlet标签给tomcat配置servlet程序-->
     <servlet>
-<!--        servlet-name 标签是servlet程序起一个别名（一般是类名）-->
+        <!--        servlet-name 标签是servlet程序起一个别名（一般是类名）-->
 
         <servlet-name>HiServlet</servlet-name>
-<!--        servlet-calss是servlet程序的全类名-->
+        <!--        servlet-calss是servlet程序的全类名-->
         <servlet-class>com.atguigu.javaweb_2.servlet.HiServlet</servlet-class>
+
+        <!--   init-param 是初始化参数     -->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>root</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/test?</param-value>
+        </init-param>
+
     </servlet>
-<!-- servlet-mapping 标签的作用是告诉服务器，当前配置的地址给哪个servlet程序使用   -->
+    <!-- servlet-mapping 标签的作用是告诉服务器，当前配置的地址给哪个servlet程序使用   -->
     <servlet-mapping>
         <servlet-name>HiServlet</servlet-name>
-<!--  url-pattern 标签配置访问地址      -->
-<!--        / 在服务器解析的时候，表示的地址为：http://ip:port/工程路径
-            /hello 表示地址为：http://ip:port/工程路径/hello
-            -->
+        <!--  url-pattern 标签配置访问地址      -->
+        <!--        / 在服务器解析的时候，表示的地址为：http://ip:port/工程路径
+                    /hello 表示地址为：http://ip:port/工程路径/hello
+                    -->
 
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>HelloServlet2</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet.HelloServlet2</servlet-class>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet2</servlet-name>
+        <url-pattern>/hello2</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>HelloServlet3</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet.HelloServlet3</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelloServlet3</servlet-name>
+        <url-pattern>/hello3</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ContextServlet</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet.ContextServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ContextServlet</servlet-name>
+        <url-pattern>/contextServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ContextServlet1</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet.ContextServlet1</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ContextServlet1</servlet-name>
+        <url-pattern>/context1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ContextServlet2</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet.ContextServlet2</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ContextServlet2</servlet-name>
+        <url-pattern>/context2</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RequestAPIServlet</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet2.RequestAPIServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>RequestAPIServlet</servlet-name>
+        <url-pattern>/requestAPIServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ParameterServlet</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet2.ParameterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ParameterServlet</servlet-name>
+        <url-pattern>/parameterServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet1</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet2.Servlet1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet1</servlet-name>
+        <url-pattern>/servlet1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet2</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet2.Servlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet2</servlet-name>
+        <url-pattern>/servlet2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ResponseServlet</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet2.ResponseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResponseServlet</servlet-name>
+        <url-pattern>/responseServlet</url-pattern>
+    </servlet-mapping>
+    
+
 </web-app>
