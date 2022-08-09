@@ -143,6 +143,25 @@
         <servlet-name>ResponseServlet</servlet-name>
         <url-pattern>/responseServlet</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>Response1</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet2.Response1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Response1</servlet-name>
+        <url-pattern>/response1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Response2</servlet-name>
+        <servlet-class>com.atguigu.javaweb_2.servlet2.Response2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Response2</servlet-name>
+        <url-pattern>/response2</url-pattern>
+    </servlet-mapping>
     
 
 </web-app>
