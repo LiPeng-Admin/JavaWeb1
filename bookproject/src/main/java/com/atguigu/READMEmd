@@ -28,7 +28,26 @@ public class User {
     }
 
 3:编写工具类 JdbcUtil
-3.1: JDBCUtils创建数据库连接池连接和关闭工具类
-3.2: JDBCUtilsTest 测试
+
+    3.1: JDBCUtils创建数据库连接池连接和关闭工具类
+
+    3.2: JDBCUtilsTest 测试
 
 4：编写 BaseDao
+
+5：编写UserDao 和测试
+    UserDao 接口
+    UserDaoImpl 实现类：
+    serDao 测试：
+
+6：编写 UserService 和测
+    UserService 接口
+    UserServiceImpl 实现类：
+    UserService 测试
+
+
+7、编写 web 层
+7.1、实现用户注册的功能
+7.1.2、修改 regist.html 和 regist_success.html 页面
+7.1.3、编写 RegistServlet 程序
+

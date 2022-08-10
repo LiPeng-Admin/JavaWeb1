@@ -38,9 +38,6 @@ public class JDBCUtils {
 
     }
 
-//    public static void main(String[] args) {
-//
-//    }
 
     public static Connection getConnection() throws SQLException {
         Connection connection = source1.getConnection();
