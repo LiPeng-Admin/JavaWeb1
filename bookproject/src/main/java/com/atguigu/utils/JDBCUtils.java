@@ -26,15 +26,22 @@ public class JDBCUtils {
     static {
         try {
             Properties properties = new Properties();
-
-            InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("druid.properties");
+/**
+ * 注意事项：此处使用类加载器，不能使用系统加载器，否则后面项目会出现空指针异常
+ * */
+            InputStream stream = JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties");
 
             properties.load(stream);
             source1 = BasicDataSourceFactory.createDataSource(properties);
+            System.out.println(source1);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+
+    public static void main(String[] args) {
 
     }
 

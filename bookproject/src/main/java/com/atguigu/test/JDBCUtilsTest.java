@@ -15,11 +15,14 @@ import java.sql.SQLException;
 public class JDBCUtilsTest {
     @Test
     public void testJdbcUtils() throws SQLException {
-        for (int i = 0; i < 100; i++) {
-            Connection connection = JDBCUtils.getConnection();
+//        for (int i = 0; i < 100; i++) {
+//            Connection connection = JDBCUtils.getConnection();
+//            System.out.println(connection);
+//            JDBCUtils.closeResoure(connection);
+//
+//        }
+        Connection connection = JDBCUtils.getConnection();
             System.out.println(connection);
             JDBCUtils.closeResoure(connection);
-
-        }
       }
 }
