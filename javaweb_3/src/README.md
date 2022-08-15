@@ -65,7 +65,7 @@ ServletConfig 对象 out jsp输出流对象 page 指向当前jsp 的对象 excep
 5）jsp 四大域对象 四个域对象分别是： pageContext (PageContextImpl 类) 当前 jsp 页面范围内有效 request (HttpServletRequest 类)、 一次请求内有效 session (
 HttpSession 类)、 一个会话范围内有效（打开浏览器访问服务器，直到关闭浏览器） application (ServletContext 类) 整个 web 工程范围内都有效（只要 web 工程不停止，数据都在） 域对象是可以像
 Map 一样存取数据的对象。四个域对象功能一样。不同的是它们对数据的存取范围。 虽然四个域对象都可以存取数据。在使用上它们是有优先顺序的。 四个域在使用的时候，优先顺序分别是，他们从小到大的范围的顺序。 pageContext
-====>>> request ====>>> session ====>>>
+====>>> request ====>>> session ====>>>application
 
 6)jsp 中的 out 输出和 response.getWriter 输出的区别
 
@@ -113,4 +113,6 @@ extends EventListener { /**
 <listener>
 <listener-class>com.atguigu.listener.MyServletContextListenerImpl</listener-class>
 </listener>
+
+
 
