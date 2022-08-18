@@ -1,6 +1,7 @@
 package com.atguigu.servlet;
 
 import org.apache.commons.io.IOUtils;
+import sun.misc.BASE64Encoder;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -15,7 +16,8 @@ import java.net.URLEncoder;
 /**
  * @author lipeng
  * @version 1.0
- * @description: TODO
+ * @description:
+ * 文件下载
  * @date 2022/8/14 23:20
  */
 public class Download extends HttpServlet {
@@ -36,7 +38,20 @@ public class Download extends HttpServlet {
         //attachment:表示附件
         //filename:表示要下载的文件名
         //url编码是把汉字转换成%xx%xx的格式
-        resp.setHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(downloadFileName, "UTF-8"));
+        String ua=req.getHeader("User-Agent");
+        //判断是否是火狐浏览器
+         if(ua.contains("Firefox"))
+         {//使用下面的格式进行BASE64编码后
+            String str="attachment;fileName="+"=?utf-8?B?"+new BASE64Encoder().encode("中文.jpg".getBytes("utf-8"))+"?=";
+            //设置到响应头中
+             resp.setHeader("Content-Disposition",str);
+         }
+         else
+         {//把中文名进行UTF-8编码操作。
+
+
+        resp.setHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(downloadFileName, "UTF-8"));}
+
 
         InputStream resourceAsStream = servletContext.getResourceAsStream("/file/" + downloadFileName);
         //获取响应的输出流
