@@ -40,7 +40,7 @@ public class User {
     UserDaoImpl 实现类：
     serDao 测试：
 
-6：编写 UserService 和测
+6：编写 UserService 和测试
     UserService 接口
     UserServiceImpl 实现类：
     UserService 测试
@@ -123,4 +123,13 @@ public class User {
 
       }
   }
+
+
+书城项目
+图书模块
+1：编写图书模块的数据库表
+2：编写图书模块的JavaBean
+3:编写图书模块的DAO 和测试DAO 
+4：编写图书模块的Service和测试
+5：编写图书模块的web层和页面联调
 

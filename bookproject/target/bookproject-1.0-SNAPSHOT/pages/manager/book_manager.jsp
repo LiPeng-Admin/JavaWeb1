@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -5,14 +6,24 @@
     <meta charset="UTF-8">
     <title>图书管理</title>
     <%--    静态包含base标签，css样式，jQuery文件--%>
-    <%@include file="/pages/common/head.jsp"%>
+    <%@include file="/pages/common/head.jsp" %>
 </head>
+<script type="text/javascript">
+
+    $(function() {
+        //给删除的a 标签绑定单击事件，用于删除的确认提示操作
+        $("a.deleteClass").click(function() {
+           return  confirm("确认要删除["+$(this).parent().parent().find("td:first").text()+"]吗？");
+
+        })
+    })
+</script>
 <body>
 
 <div id="header">
-    <img class="logo_img" alt="" src="../../static/img/logo.gif" >
+    <img class="logo_img" alt="" src="../../static/img/logo.gif">
     <span class="wel_word">图书管理系统</span>
-    <%@include file="/pages/common/manager_menu.jsp"%>
+    <%@include file="/pages/common/manager_menu.jsp" %>
 </div>
 
 <div id="main">
@@ -25,45 +36,19 @@
             <td>库存</td>
             <td colspan="2">操作</td>
         </tr>
-        <tr>
-            <td>时间简史</td>
-            <td>20.00</td>
-            <td>霍金</td>
-            <td>200</td>
-            <td>400</td>
-            <td><a href="book_edit.jsp">修改</a></td>
-            <td><a href="#">删除</a></td>
-        </tr>
+        <c:forEach items="${requestScope.books}" var="book">
+            <tr>
+                <td>${book.name}</td>
+                <td>${book.price}</td>
+                <td>${book.author}</td>
+                <td>${book.sales}</td>
+                <td>${book.stock}</td>
+                <td><a href="manager/bookServlet?action=getBook&id=${book.id}">修改</a></td>
+                <td><a class="deleteClass" href="manager/bookServlet?action=delete&id=${book.id}">删除</a></td>
+            </tr>
 
-        <tr>
-            <td>时间简史</td>
-            <td>20.00</td>
-            <td>霍金</td>
-            <td>200</td>
-            <td>400</td>
-            <td><a href="book_edit.jsp">修改</a></td>
-            <td><a href="#">删除</a></td>
-        </tr>
+        </c:forEach>
 
-        <tr>
-            <td>时间简史</td>
-            <td>20.00</td>
-            <td>霍金</td>
-            <td>200</td>
-            <td>400</td>
-            <td><a href="book_edit.jsp">修改</a></td>
-            <td><a href="#">删除</a></td>
-        </tr>
-
-        <tr>
-            <td>时间简史</td>
-            <td>20.00</td>
-            <td>霍金</td>
-            <td>200</td>
-            <td>400</td>
-            <td><a href="book_edit.jsp">修改</a></td>
-            <td><a href="#">删除</a></td>
-        </tr>
 
         <tr>
             <td></td>
@@ -72,12 +57,12 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="book_edit.jsp">添加图书</a></td>
+            <td><a href="pages/manager/book_edit.jsp">添加图书</a></td>
         </tr>
     </table>
 </div>
 
-<%@include file="/pages/common/footer.jsp"%>
+<%@include file="/pages/common/footer.jsp" %>
 
 </body>
 </html>
