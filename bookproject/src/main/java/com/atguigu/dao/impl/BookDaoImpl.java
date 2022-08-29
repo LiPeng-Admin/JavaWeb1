@@ -2,6 +2,9 @@ package com.atguigu.dao.impl;
 
 import com.atguigu.dao.BookDao;
 import com.atguigu.pojo.Book;
+import com.atguigu.pojo.Page;
+
+import java.util.List;
 
 /**
  * @author lipeng
@@ -9,7 +12,7 @@ import com.atguigu.pojo.Book;
  * @description: TODO
  * @date 2022/8/27 10:56
  */
-public class BookDaoImpl extends BaseDao implements BookDao {
+public   class BookDaoImpl extends BaseDao implements BookDao {
 
     @Override
     public int addBook(Book book) {
@@ -37,8 +40,37 @@ public class BookDaoImpl extends BaseDao implements BookDao {
     }
 
     @Override
-    public <List> java.util.List<Book> queryBooks() {
+    public List<Book> queryBooks() {
         String sql="select id,name,price,author,sales,stock,img_path imgPath FROM t_book";
         return queryFoList(Book.class,sql);
     }
+
+    @Override
+    public Integer queryForPageTotalCount() {
+        String sql="select count(*) from t_book";
+        Number count = (Number) queryForSingleValue(sql);
+        return count.intValue();
+
+    }
+
+    @Override
+    public List<Book> queryForPageItems(int begin, int pageSize) {
+        String sql="SELECT id,name,price,author,sales,stock,img_path imgPath FROM t_book limit ?,? ";
+        return queryFoList(Book.class, sql, begin, pageSize);
+    }
+
+    @Override
+    public Integer queryForPageTotalCountByPrice(int min, int max) {
+        String sql="select count(*) from t_book where price BETWEEN ? AND ? ";
+        Number count = (Number) queryForSingleValue(sql,min,max);
+        return count.intValue();
+    }
+
+    @Override
+    public List<Book> queryForPageItemsByPrice(int begin, int pageSize, int min, int max) {
+        String sql="SELECT id,name,price,author,sales,stock,img_path imgPath FROM t_book where price BETWEEN ? AND ? order by price limit ?,? ";
+        return queryFoList(Book.class, sql, min,max,begin, pageSize);
+    }
+
+
 }

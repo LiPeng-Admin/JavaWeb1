@@ -7,13 +7,14 @@
     <title>图书管理</title>
     <%--    静态包含base标签，css样式，jQuery文件--%>
     <%@include file="/pages/common/head.jsp" %>
+
 </head>
 <script type="text/javascript">
 
-    $(function() {
+    $(function () {
         //给删除的a 标签绑定单击事件，用于删除的确认提示操作
-        $("a.deleteClass").click(function() {
-           return  confirm("确认要删除["+$(this).parent().parent().find("td:first").text()+"]吗？");
+        $("a.deleteClass").click(function () {
+            return confirm("确认要删除[" + $(this).parent().parent().find("td:first").text() + "]吗？");
 
         })
     })
@@ -36,15 +37,18 @@
             <td>库存</td>
             <td colspan="2">操作</td>
         </tr>
-        <c:forEach items="${requestScope.books}" var="book">
+        <c:forEach items="${requestScope.page.items}" var="book">
             <tr>
                 <td>${book.name}</td>
                 <td>${book.price}</td>
                 <td>${book.author}</td>
                 <td>${book.sales}</td>
                 <td>${book.stock}</td>
-                <td><a href="manager/bookServlet?action=getBook&id=${book.id}">修改</a></td>
-                <td><a class="deleteClass" href="manager/bookServlet?action=delete&id=${book.id}">删除</a></td>
+                <td><a href="manager/bookServlet?action=getBook&id=${book.id}&pageNo=${requestScope.page.pageNo}">修改</a>
+                </td>
+                <td><a class="deleteClass"
+                       href="manager/bookServlet?action=delete&id=${book.id}&pageNo=${requestScope.page.pageNo}">删除</a>
+                </td>
             </tr>
 
         </c:forEach>
@@ -57,9 +61,12 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="pages/manager/book_edit.jsp">添加图书</a></td>
+            <td><a href="pages/manager/book_edit.jsp?pageNo=${requestScope.page.pageTotal}">添加图书</a></td>
         </tr>
     </table>
+
+    <%@include file="/pages/common/page_nav.jsp" %>
+
 </div>
 
 <%@include file="/pages/common/footer.jsp" %>

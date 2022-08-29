@@ -1,6 +1,9 @@
 package com.atguigu.dao;
 
 import com.atguigu.pojo.Book;
+import com.atguigu.pojo.Page;
+
+import java.util.List;
 
 public abstract interface BookDao {
     public int addBook(Book book);
@@ -11,5 +14,14 @@ public abstract interface BookDao {
 
     public Book queryBookById(Integer id);
 
-    public <List> java.util.List<Book> queryBooks();
+    public List<Book> queryBooks();
+
+    Integer queryForPageTotalCount();
+
+    List<Book> queryForPageItems(int begin, int pageSize);
+
+
+    Integer queryForPageTotalCountByPrice(int min, int max);
+
+    List<Book> queryForPageItemsByPrice(int begin, int pageSize, int min, int max);
 }

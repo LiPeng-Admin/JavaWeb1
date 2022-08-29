@@ -1,5 +1,7 @@
 package com.atguigu.dao.impl;
 
+import com.atguigu.pojo.Book;
+import com.atguigu.pojo.Page;
 import com.atguigu.pojo.User;
 import com.atguigu.utils.JDBCUtils;
 import org.apache.commons.dbutils.QueryRunner;
@@ -115,4 +117,6 @@ public abstract class BaseDao {
 
 
     }
+
+
 }
