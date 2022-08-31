@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="javaweb_5" />
+        <module name="javaweb_book" />
         <module name="javaweb_2" />
         <module name="javaweb_1" />
-        <module name="javaweb_book" />
         <module name="bookproject" />
         <module name="javaweb_4" />
         <module name="javaweb_3" />
@@ -20,6 +21,7 @@
       <module name="javaweb_2" target="1.8" />
       <module name="javaweb_3" target="1.8" />
       <module name="javaweb_4" target="1.8" />
+      <module name="javaweb_5" target="1.8" />
       <module name="javaweb_book" target="8" />
     </bytecodeTargetLevel>
   </component>
