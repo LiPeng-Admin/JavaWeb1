@@ -17,6 +17,8 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Map;
 
+import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
+
 /**
  * @author lipeng
  * @version 1.0
@@ -26,6 +28,16 @@ import java.util.Map;
 
 public class UserServlet extends BaseServlet {
     private UserService userService = new UserServiceImpl();
+
+    /**
+     * @param req
+     * @param resp
+     * @description: 用户登录
+     * @param:
+     * @return: void
+     * @author lipeng
+     * @date: 2022/9/1 23:14
+     */
 
     protected void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -45,6 +57,8 @@ public class UserServlet extends BaseServlet {
         } else {
             //登录成功
             System.out.println("success true");
+            //保存用户登录的信息到session 域中
+            req.getSession().setAttribute("user", loginUser);
             //登录成功，页面跳转到登录成功页
             req.getRequestDispatcher("/pages/user/login_success.jsp").forward(req, resp);
 
@@ -52,7 +66,39 @@ public class UserServlet extends BaseServlet {
         }
     }
 
+    /**
+     * @param req
+     * @param resp
+     * @description: 用户注销
+     * @param:
+     * @return: void
+     * @author lipeng
+     * @date: 2022/9/1 23:13
+     */
+    protected void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //1:销毁session 中用户登录信息
+        req.getSession().invalidate();
+        //2：重定向到首页（或登录页面）
+        resp.sendRedirect(req.getContextPath());
+
+    }
+
+    /**
+     * @param req
+     * @param resp
+     * @description: 用户注册
+     * @param:
+     * @return: void
+     * @author lipeng
+     * @date: 2022/9/3 15:12
+     */
+
     protected void regist(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //获取session中的验证码
+        String token= (String) req.getSession().getAttribute(KAPTCHA_SESSION_KEY);
+        //删除session验证码
+        req.getSession().removeAttribute(KAPTCHA_SESSION_KEY);
+
         //1、获取请求的参数
         String username = req.getParameter("username");
         String password = req.getParameter("password");
@@ -73,11 +119,11 @@ public class UserServlet extends BaseServlet {
 //
 //        }
 //        WebUtils.copyParamToBean(req.getParameterMap(), user);
-        User user =  WebUtils.copyParamToBean(req.getParameterMap(), new User());
+        User user = WebUtils.copyParamToBean(req.getParameterMap(), new User());
 
 
         //2、检查 验证码是否正确  === 写死,要求验证码为:abcde
-        if ("abcde".equalsIgnoreCase(code)) {
+        if (token != null&&token.equalsIgnoreCase(code)) {
             //3、检查 用户名是否可用
             if (userService.existsUsername(username)) {
 

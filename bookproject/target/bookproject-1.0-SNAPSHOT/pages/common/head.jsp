@@ -14,6 +14,7 @@
             request.getContextPath() +
             "/";
     pageContext.setAttribute("basePath", basePath);
+
 %>
 <%--<%=basePath %>--%>
 <base href="<%=basePath %>">

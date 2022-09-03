@@ -27,5 +27,10 @@
         <servlet-name>SessionServlet</servlet-name>
         <url-pattern>/sessionServlet</url-pattern>
     </servlet-mapping>
+<!--表示当前 web 工程。创建出来 的所有 Session 默认是 20 分钟 超时时长-->
+
+    <session-config>
+   <session-timeout>20</session-timeout>
+    </session-config>
 
 </web-app>
