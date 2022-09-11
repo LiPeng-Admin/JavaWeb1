@@ -46,4 +46,47 @@
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/cartServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>com.atguigu.web.OrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/orderServlet</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>ManagerFilter</filter-name>
+        <filter-class>com.atguigu.filter.ManagerFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>ManagerFilter</filter-name>
+        <url-pattern>/pages/manager/*</url-pattern>
+        <url-pattern>/manager/bookServlet</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>TranscationFilter</filter-name>
+        <filter-class>com.atguigu.filter.TranscationFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>TranscationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+<!--error-page标签配置，服务器出错之后，自动跳转到的页面-->
+   <error-page>
+       <error-code>500</error-code>
+<!--       location 表示要跳转去的页面路径-->
+       <location>/pages/error/error500.jsp</location>
+   </error-page>
+
+    <!--error-page标签配置，服务器出错之后，自动跳转到的页面-->
+    <error-page>
+        <error-code>404</error-code>
+        <!--       location 表示要跳转去的页面路径-->
+        <location>/pages/error/error404.jsp</location>
+    </error-page>
+
 </web-app>

@@ -1,8 +1,8 @@
 package com.atguigu.dao.impl;
 
+import com.atguigu.dao.BaseDao;
 import com.atguigu.dao.BookDao;
 import com.atguigu.pojo.Book;
-import com.atguigu.pojo.Page;
 
 import java.util.List;
 
@@ -29,6 +29,7 @@ public   class BookDaoImpl extends BaseDao implements BookDao {
 
     @Override
     public int updateBook(Book book) {
+        System.out.println("BookDaoImpl在线程【"+Thread.currentThread().getName()+"】中");
         String sql = "update t_book set name = ?, author = ?, price = ?,sales=?, stock = ?, img_path=? where id=?";
         return update(sql, book.getName(), book.getAuthor(), book.getPrice(), book.getSales(), book.getStock(), book.getImgPath(), book.getId());
     }

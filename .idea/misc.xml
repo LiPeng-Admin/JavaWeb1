@@ -6,6 +6,7 @@
     <file type="web" url="file://$PROJECT_DIR$/javaweb_3" />
     <file type="web" url="file://$PROJECT_DIR$/javaweb_4" />
     <file type="web" url="file://$PROJECT_DIR$/javaweb_5" />
+    <file type="web" url="file://$PROJECT_DIR$/javaweb_6" />
     <file type="web" url="file://$PROJECT_DIR$/temp" />
   </component>
   <component name="MavenProjectsManager">
@@ -19,6 +20,7 @@
         <option value="$PROJECT_DIR$/javaweb_4/pom.xml" />
         <option value="$PROJECT_DIR$/javaweb_5/pom.xml" />
         <option value="$PROJECT_DIR$/temp/pom.xml" />
+        <option value="$PROJECT_DIR$/javaweb_6/pom.xml" />
       </list>
     </option>
   </component>

@@ -11,7 +11,7 @@
 <script type="text/javascript">
     $(function () {
         $("a.deleteItem").click(function () {
-           return  confirm("确认要删除【"+$(this).parent().parent().find("td:first").text()+"】吗？")
+            return confirm("确认要删除【" + $(this).parent().parent().find("td:first").text() + "】吗？")
         })
 
         $("#clearCart").click(function () {
@@ -21,9 +21,17 @@
         $(".updateCount").change(function () {
             //获取商品名称
             const name = $(this).parent().parent().find("td:first").text();
+            const id = $(this).attr("bookId");
             //获取商品数量
             const count = this.value;
-            confirm("确认修改商品【"+name +"】数量为"+count+"吗？")
+
+            if (confirm("确认修改商品【" + name + "】数量为" + count + "吗？")) {
+                //发起请求，给服务器保存修改
+                location.href = "http://localhost:8080/bookproject/cartServlet?action=updateCount&count="+count+"&id="+id;
+            } else {
+                //取消时，商品数量恢复为原数量
+                this.value = this.defaultValue;
+            }
 
         })
     })
@@ -58,7 +66,9 @@
                 <tr>
                     <td>${entry.value.name}</td>
                     <td>
-                        <input class="updateCount" style="width: 80px;" type="text" value="${entry.value.count}">
+                        <input class="updateCount" style="width: 80px;"
+                               bookId="${entry.value.id}"
+                               type="text" value="${entry.value.count}">
                     </td>
                     <td>${entry.value.price}</td>
                     <td>${entry.value.totalPrice}</td>
@@ -76,7 +86,7 @@
             <span class="cart_span">购物车中共有<span class="b_count">${sessionScope.cart.totalCount}</span>件商品</span>
             <span class="cart_span">总金额<span class="b_price">${sessionScope.cart.totalPrice}</span>元</span>
             <span class="cart_span"><a id="clearCart" href="cartServlet?action=clear">清空购物车</a></span>
-            <span class="cart_span"><a href="pages/cart/checkout.jsp">去结账</a></span>
+            <span class="cart_span"><a href="orderServlet?action=createOrder">去结账</a></span>
         </div>
 
     </c:if>

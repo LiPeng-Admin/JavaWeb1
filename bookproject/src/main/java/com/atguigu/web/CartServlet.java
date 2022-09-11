@@ -51,6 +51,8 @@ public class CartServlet extends BaseServlet {
         //重定向回原来商品所在的页面
 //        resp.sendRedirect(req.getContextPath());
         resp.sendRedirect(req.getHeader("Referer"));
+        //最后添加的商品名称
+        req.getSession().setAttribute("lastName",cartItem.getName());
 
 
     }
@@ -100,4 +102,31 @@ public class CartServlet extends BaseServlet {
 
 
     }
+
+    /**
+     * @param req
+     * @param resp
+     * @description:修改商品数量
+     * @param:
+     * @return: void
+     * @author lipeng
+     * @date: 2022/9/4 9:46
+     */
+
+
+    protected void updateCount(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //获取请求的参数：商品编号，商品数量
+        int id = WebUtils.parseInt(req.getParameter("id"), 0);
+        int count = WebUtils.parseInt(req.getParameter("count"), 1);
+        //获取Cart购物车对象
+        Cart cart = (Cart) req.getSession().getAttribute("cart");
+        //判断购物车是够为空
+        if (cart != null) {
+            cart.updateCount(id, count);
+            //重定向回原来商品所在的页面
+            resp.sendRedirect(req.getHeader("Referer"));
+        }
+
+    }
+
 }
