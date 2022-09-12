@@ -14,6 +14,7 @@ import java.lang.reflect.Method;
  * @date 2022/8/21 21:56
  */
 public class BaseServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -21,7 +22,9 @@ public class BaseServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String parameter = req.getParameter("action");
+        resp.setContentType("text/html; charset=UTF-8");
 
         try {
             //通过action 业务 鉴别字符串，获取相应的业务方法反射对象

@@ -28,6 +28,22 @@
           * */
         //页面加载完成之后
         $(function () {
+            $("#username").blur(function () {
+                //1：获取用户名
+                var username = this.value;
+                $.getJSON("http://localhost:8080/bookproject/userServlet","action=ajaxExistsUsername&username="+username,function (data) {
+                    // console.log(data)
+                    if(data.existsUsername){
+                        $("span.errorMsg").text("用户名已存在！");
+
+                    }else{
+                        $("span.errorMsg").text("用户名可用");
+                    }
+
+                })
+            })
+
+
             //给注册绑定单击事件
             /*验证用户名：必须是字母，数字，下划线，并且长度是5-12位
             * 1:获取用户名输入框里面的内容
@@ -111,11 +127,11 @@
             })
             //给验证码图片绑定单击事件
 
-            $("#code_img").click(function(){
+            $("#code_img").click(function () {
                 //在事件响应的function函数中，有一个this 对象，这个this对象，是当前正在响应的dom 对象
                 //src 属性表示验证码img 标签的图片路径，可读，可写
                 //new Date():为了解决浏览器端的缓存问题
-               this.src="${basePath}kaptcha.jpg?d="+new Date();
+                this.src = "${basePath}kaptcha.jpg?d=" + new Date();
 
             })
 
@@ -152,8 +168,8 @@
                         <label>用户名称：</label>
                         <input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1"
                                name="username" id="username"
-<%--                               value="<%=request.getAttribute("username")==null ? "" : request.getAttribute("username") %>"/>--%>
-                        value="${requestScope.username}"
+                        <%--                               value="<%=request.getAttribute("username")==null ? "" : request.getAttribute("username") %>"/>--%>
+                               value="${requestScope.username}"
                         <br/>
                         <br/>
                         <label>用户密码：</label>
@@ -169,13 +185,14 @@
                         <label>电子邮件：</label>
                         <input class="itxt" type="text" placeholder="请输入邮箱地址" autocomplete="off" tabindex="1"
                                name="email" id="email"
-<%--                               value="<%=request.getAttribute("email")==null?"" : request.getAttribute("email")%>"/>--%>
-                        value="${requestScope.email}"
+                        <%--                               value="<%=request.getAttribute("email")==null?"" : request.getAttribute("email")%>"/>--%>
+                               value="${requestScope.email}"
                         <br/>
                         <br/>
                         <label>验证码：</label>
                         <input class="itxt" type="text" style="width: 80px;" name="code" id="code"/>
-                        <img alt="" id="code_img" src="kaptcha.jpg" style="float: right; margin-right: 40px" width="110" height="30">
+                        <img alt="" id="code_img" src="kaptcha.jpg" style="float: right; margin-right: 40px" width="110"
+                             height="30">
                         <br/>
                         <br/>
                         <input type="submit" value="注册" id="sub_btn"/>

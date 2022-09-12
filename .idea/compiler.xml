@@ -9,6 +9,7 @@
         <module name="javaweb_6" />
         <module name="javaweb_5" />
         <module name="temp" />
+        <module name="javaweb_7" />
         <module name="javaweb_book" />
         <module name="javaweb_2" />
         <module name="javaweb_1" />
@@ -25,6 +26,7 @@
       <module name="javaweb_4" target="1.8" />
       <module name="javaweb_5" target="1.8" />
       <module name="javaweb_6" target="1.8" />
+      <module name="javaweb_7" target="1.8" />
       <module name="javaweb_book" target="8" />
       <module name="temp" target="1.8" />
     </bytecodeTargetLevel>
